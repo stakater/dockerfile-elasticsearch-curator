@@ -1,23 +1,25 @@
-FROM stakater/base-alpine:3.7
+FROM stakater/python:2.7-alpine
 
 ARG CURATOR_VERSION=3.5.1
-ENV CRON_SCHEDULE="0 0 * * * *"
+
+ENV CRON_SCHEDULE="0 0 * * * *" \
+    ELASTICSEARCH_HOST="elasticsearch" \
+    ELASTICSEARCH_PORT="9092" \
+    SNAPSHOT_NAME="s3-backup" \
+    BUCKET_NAME="es-backup-bucket" \
+    AWS_REGION="us-west-1" \
+    TIME_UNIT="days" \
+    TIMESTRING="%Y.%m.%d" \
+    OLDER_THAN="90"
 
 RUN \
-  apk add -Uv --progress \
-    python \
-    py-pip \
-    sed \
-    && \
   pip install --no-cache-dir \
     elasticsearch-curator==${CURATOR_VERSION} \
     && \
-  mkdir /actions /config
+  mkdir /curator-config
 
-
-RUN echo "${CRON_SCHEDULE}	/usr/sbin/curator --config /config/config.yaml /action/action.yaml" >> /etc/crontabs/root
-
-COPY default actions and configuration and volume map in doc
+ADD ./curator-config /curator-config
+ADD start.sh /
 
 ENTRYPOINT [ ]
-CMD ["crond", "-f"]
+CMD ["/start.sh"]
