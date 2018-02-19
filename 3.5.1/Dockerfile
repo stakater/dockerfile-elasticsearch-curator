@@ -7,6 +7,7 @@ ENV CRON_SCHEDULE="0 0 * * * *" \
     ELASTICSEARCH_PORT="9092" \
     SNAPSHOT_NAME="s3-backup" \
     BUCKET_NAME="es-backup-bucket" \
+    BUCKET_BASE_PATH="/" \
     AWS_REGION="us-west-1" \
     TIME_UNIT="days" \
     TIMESTRING="%Y.%m.%d" \
