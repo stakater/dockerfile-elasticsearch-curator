@@ -12,11 +12,12 @@ Refer to the version matrix in the [official curator repository](https://github.
 
 Environment Variables:
 
-* `CRON_SCHEDULE`: Crontab schedule for curator to run
+* `CRON_SCHEDULE`: Crontab schedule for curator to run, Default: `0 0 * * *` i.e. Daily at 00:00
 * `ELASTICSEARCH_HOST`: Elasticsearch host
 * `ELASTICSEARCH_PORT`: Elasticsearch port
 * `SNAPSHOT_NAME`: Name of the snapshot repository in ES
 * `BUCKET_NAME`: Name of the bucket in which indice snapshots are to be backedup
+* `BUCKET_BASE_PATH`: Base path inside bucket where indices backup must be stored
 * `AWS_REGION`: AWS region of the bucket
 * `TIME_UNIT`:[hours|days|weeks|months] Unit of time to reckon by
 * `TIMESTRING`: Python strftime string to match your index definition, e.g. 2014.07.15 would be %Y.%m.%d
