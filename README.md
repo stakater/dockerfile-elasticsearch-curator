@@ -26,6 +26,8 @@ Environment Variables:
 
 Example Usage:
 
+Elasticsearch running on host and disabling snapshot, only deleting incdices
+
 ```bash
-docker run -d -e ELASTICSEARCH_HOST=elasticsearch stakater/elasticsearch-curator
+docker run -d -e ELASTICSEARCH_HOST=elasticsearch -e DO_SNAPSHOT="" stakater/elasticsearch-curator
 ```
