@@ -2,7 +2,7 @@ FROM stakater/python:2.7-alpine
 
 ARG CURATOR_VERSION=3.5.1
 
-ENV CRON_SCHEDULE="0 0 * * * *" \
+ENV CRON_SCHEDULE="0 0 * * *" \
     ELASTICSEARCH_HOST="elasticsearch" \
     ELASTICSEARCH_PORT="9092" \
     SNAPSHOT_NAME="s3-backup" \
