@@ -10,7 +10,9 @@ ENV CRON_SCHEDULE="0 0 * * * *" \
     AWS_REGION="us-west-1" \
     TIME_UNIT="days" \
     TIMESTRING="%Y.%m.%d" \
-    OLDER_THAN="90"
+    OLDER_THAN="90" \
+    DO_SNAPSHOT="true" \
+    DO_DELETE="true"
 
 RUN \
   pip install --no-cache-dir \
