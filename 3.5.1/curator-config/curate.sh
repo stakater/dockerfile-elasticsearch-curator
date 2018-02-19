@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Snapshot ES indexes
-if [ -z "${DO_SNAPSHOT}" ]; 
+if [ -n "${DO_SNAPSHOT}" ]; 
 then
+    echo "$(date) - Creating Snapshot on repository: ${SNAPSHOT_NAME} for indices older than ${OLDER_THAN} ${TIME_UNIT}"
     /usr/bin/curator \
         --host ${ELASTICSEARCH_HOST} \
         --port ${ELASTICSEARCH_PORT} \
@@ -15,8 +16,9 @@ then
 fi;
 
 # Delete ES Indexes
-if [ -z ${DO_DELETE} ];
+if [ -n ${DO_DELETE} ];
 then
+    echo "$(date) - Deleting indices older than ${OLDER_THAN} ${TIME_UNIT}"
     /usr/bin/curator \
         --host ${ELASTICSEARCH_HOST} \
         --port ${ELASTICSEARCH_PORT} \
