@@ -1,7 +1,8 @@
 #!/bin/bash
+set -e
 
 echo "Creating Backup repository in ES... "
-/curator-config/create-snapshot-repository.sh 
+/curator-config/create-snapshot-repository.sh
 
 echo "
 Writing curator cron job ..."
