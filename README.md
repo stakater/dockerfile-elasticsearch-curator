@@ -21,6 +21,10 @@ Environment Variables:
 * `TIME_UNIT`:[hours|days|weeks|months] Unit of time to reckon by
 * `TIMESTRING`: Python strftime string to match your index definition, e.g. 2014.07.15 would be %Y.%m.%d
 * `OLDER_THAN`: Include only indices older than n time_units (Integer)
+* `DO_SNAPSHOT`: If variable is set (default), enables the code snippet which takes snapshot and backs up indices to s3
+* `DO_DELETE`: If variable is set (default), enables the code snippet which deletes indcies
+
+Example Usage:
 
 ```bash
 docker run -d -e ELASTICSEARCH_HOST=elasticsearch stakater/elasticsearch-curator
