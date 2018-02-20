@@ -6,12 +6,14 @@ echo "Creating Backup repository in ES... "
 
 echo "
 Writing curator cron job ..."
-touch /var/log/curator.log
-echo "${CRON_SCHEDULE}	/curator-config/curate.sh >> /var/log/curator.log 2>&1" >> /etc/crontabs/root
+echo "${CRON_SCHEDULE}	/curator-config/curate.sh" >> /etc/crontabs/root
+
+# Create logfile if not exists
+touch ${LOGFILE}
 
 echo "
 Starting cron ..."
 crond -f &
 echo "
 cron started"
-tail -f /var/log/curator.log
+tail -f ${LOGFILE}
