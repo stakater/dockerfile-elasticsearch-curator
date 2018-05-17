@@ -1,8 +1,12 @@
 #!/bin/bash
 set -e
 
-echo "Creating Backup repository in ES... "
-/curator-config/create-snapshot-repository.sh
+# If snapshot is required
+if [ -n "${DO_SNAPSHOT}" ];
+then
+    echo "Creating Backup repository in ES... "
+    /curator-config/create-snapshot-repository.sh
+fi;
 
 echo "
 Writing curator cron job ..."
