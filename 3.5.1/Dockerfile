@@ -15,7 +15,8 @@ ENV CRON_SCHEDULE="0 0 * * *" \
     DO_SNAPSHOT="true" \
     DO_DELETE="true" \
     LOGLEVEL="INFO" \
-    LOGFILE="/var/log/curator.log"
+    LOGFILE="/var/log/curator.log" \
+    DRY_RUN=""
 
 RUN \
   pip install --no-cache-dir \
