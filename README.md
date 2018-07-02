@@ -28,6 +28,7 @@ Environment Variables:
 * `DO_DELETE`: If variable is set (default), enables the code snippet which deletes indcies
 * `LOGLEVEL`: Log level of the curator log,  default: `INFO`
 * `LOGFILE`: File in which curator writes its logs, default `/var/log/curator.log`
+* `EXTRA_OPTS`: Pass extra flag options to curator e.g. `--dry-run` 
 
 Example Usage:
 
